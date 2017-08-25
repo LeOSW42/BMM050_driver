@@ -170,9 +170,6 @@ static void bmm_dump_reg(struct spi_device *spi);
 static int bmm_wakeup(struct spi_device *spi);
 static int bmm_check_chip_id(struct spi_device *spi);
 
-static int bmm_pre_suspend(struct spi_device *spi);
-static int bmm_post_resume(struct spi_device *spi);
-
 static int bmm_restore_hw_cfg(struct spi_device *spi);
 
 static const struct bosch_sensor_axis_remap
@@ -188,18 +185,6 @@ bst_axis_remap_tab_dft[MAX_AXIS_REMAP_TAB_SZ] = {
 	{  0,    1,    2,     1,     -1,     -1 }, /* P6 */
 	{  1,    0,    2,     1,      1,     -1 }, /* P7 */
 };
-
-static void bst_remap_sensor_data(struct bosch_sensor_data *data,
-		const struct bosch_sensor_axis_remap *remap)
-{
-	struct bosch_sensor_data tmp;
-
-	tmp.x = data->v[remap->src_x] * remap->sign_x;
-	tmp.y = data->v[remap->src_y] * remap->sign_y;
-	tmp.z = data->v[remap->src_z] * remap->sign_z;
-
-	memcpy(data, &tmp, sizeof(*data));
-}
 
 static void bmm_remap_sensor_data(struct bmm050_mdata_s32 *val,
 		struct bmm_device_data *device_data)
