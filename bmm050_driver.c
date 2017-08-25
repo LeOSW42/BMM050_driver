@@ -1153,8 +1153,7 @@ static int bmm_probe(struct spi_device *spi, const struct spi_device_id *id)
 	/* check chip id */
 	err = bmm_check_chip_id(spi);
 	if (!err) {
-		PNOTICE("Bosch Sensortec Device %s detected, spi_addr: %#x",
-				SENSOR_NAME, spi->addr);
+		PNOTICE("Bosch Sensortec Device %s detected", SENSOR_NAME);
 	} else {
 		PERR("Bosch Sensortec Device not found, chip id mismatch");
 		err = -1;
@@ -1197,27 +1196,27 @@ static int bmm_probe(struct spi_device *spi, const struct spi_device_id *id)
 	atomic_set(&device_data->delay, BMM_DELAY_DEFAULT);
 
 	/* h/w init */
-	device_data->spi.bus_read = bmm_spi_read_wrapper;
-	device_data->spi.bus_write = bmm_spi_write_wrapper;
-	device_data->spi.delay_msec = bmm_delay;
-	BMM_CALL_API(init)(&device_data->spi);
+	device_data->device.bus_read = bmm_spi_read_wrapper;
+	device_data->device.bus_write = bmm_spi_write_wrapper;
+	device_data->device.delay_msec = bmm_delay;
+	BMM_CALL_API(init)(&device_data->device);
 
 	bmm_dump_reg(spi);
 
 	PDEBUG("trimming_reg x1: %d y1: %d x2: %d y2: %d xy1: %d xy2: %d",
-			device_data->spi.dig_x1,
-			device_data->spi.dig_y1,
-			device_data->spi.dig_x2,
-			device_data->spi.dig_y2,
-			device_data->spi.dig_xy1,
-			device_data->spi.dig_xy2);
+			device_data->device.dig_x1,
+			device_data->device.dig_y1,
+			device_data->device.dig_x2,
+			device_data->device.dig_y2,
+			device_data->device.dig_xy1,
+			device_data->device.dig_xy2);
 
 	PDEBUG("trimming_reg z1: %d z2: %d z3: %d z4: %d xyz1: %d",
-			device_data->spi.dig_z1,
-			device_data->spi.dig_z2,
-			device_data->spi.dig_z3,
-			device_data->spi.dig_z4,
-			device_data->spi.dig_xyz1);
+			device_data->device.dig_z1,
+			device_data->device.dig_z2,
+			device_data->device.dig_z3,
+			device_data->device.dig_z4,
+			device_data->device.dig_xyz1);
 
 	device_data->enable = 0;
 	/* now it's power on which is considered as resuming from suspend */
