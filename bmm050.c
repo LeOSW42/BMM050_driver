@@ -43,7 +43,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_init(struct bmm050 *bmm050)
 	bmm050_set_presetmode(BMM050_PRESETMODE_REGULAR);
 	return comres;
 }
-EXPORT_MODULE(bmm050_init);
+EXPORT_SYMBOL(bmm050_init);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_presetmode(unsigned char mode)
 {
@@ -87,7 +87,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_set_presetmode(unsigned char mode)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_presetmode);
+EXPORT_SYMBOL(bmm050_set_presetmode);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_functional_state(
 unsigned char functional_state)
@@ -169,7 +169,7 @@ unsigned char functional_state)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_functional_state);
+EXPORT_SYMBOL(bmm050_set_functional_state);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_functional_state(
 unsigned char *functional_state)
@@ -188,7 +188,7 @@ unsigned char *functional_state)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_functional_state);
+EXPORT_SYMBOL(bmm050_get_functional_state);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_read_mdataXYZ(struct bmm050_mdata *mdata)
 {
@@ -254,7 +254,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_read_mdataXYZ(struct bmm050_mdata *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_mdataXYZ);
+EXPORT_SYMBOL(bmm050_read_mdataXYZ);
 
 /* In this function X and Y axis is remapped,
  * this API is only applicable for BMX055*/
@@ -325,7 +325,7 @@ struct bmm050_remapped_mdata *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_bmx055_remapped_mdataXYZ);
+EXPORT_SYMBOL(bmm050_read_bmx055_remapped_mdataXYZ);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_read_mdataXYZ_s32(
 struct bmm050_mdata_s32 *mdata)
@@ -396,7 +396,7 @@ struct bmm050_mdata_s32 *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_mdataXYZ_s32);
+EXPORT_SYMBOL(bmm050_read_mdataXYZ_s32);
 
 /* In this function X and Y axis is remapped,
  * this API is only applicable for BMX055*/
@@ -467,7 +467,7 @@ struct bmm050_remapped_mdata_s32 *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_bmx055_remapped_mdataXYZ_s32);
+EXPORT_SYMBOL(bmm050_read_bmx055_remapped_mdataXYZ_s32);
 
 #ifdef ENABLE_FLOAT
 BMM050_RETURN_FUNCTION_TYPE bmm050_read_mdataXYZ_float(
@@ -535,7 +535,7 @@ struct bmm050_mdata_float *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_mdataXYZ_float);
+EXPORT_SYMBOL(bmm050_read_mdataXYZ_float);
 #endif
 
 /* In this function X and Y axis is remapped,
@@ -607,7 +607,7 @@ struct bmm050_remapped_mdata_float *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_read_bmx055_remapped_mdataXYZ_float);
+EXPORT_SYMBOL(bmm050_read_bmx055_remapped_mdataXYZ_float);
 #endif
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_read_register(unsigned char addr,
@@ -622,7 +622,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_read_register(unsigned char addr,
 	}
 		return comres;
 }
-EXPORT_MODULE(bmm050_read_register);
+EXPORT_SYMBOL(bmm050_read_register);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_write_register(unsigned char addr,
 	    unsigned char *data, unsigned char len)
@@ -636,7 +636,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_write_register(unsigned char addr,
 	}
 		return comres;
 }
-EXPORT_MODULE(bmm050_write_register);
+EXPORT_SYMBOL(bmm050_write_register);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_selftest(unsigned char selftest)
 {
@@ -656,7 +656,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_set_selftest(unsigned char selftest)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_selftest);
+EXPORT_SYMBOL(bmm050_set_selftest);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_self_test_XYZ(
 unsigned char *self_testxyz)
@@ -686,7 +686,7 @@ unsigned char *self_testxyz)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_self_test_XYZ);
+EXPORT_SYMBOL(bmm050_get_self_test_XYZ);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_spi3(unsigned char value)
 {
@@ -704,7 +704,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_set_spi3(unsigned char value)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_spi3);
+EXPORT_SYMBOL(bmm050_set_spi3);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_datarate(unsigned char data_rate)
 {
@@ -726,7 +726,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_set_datarate(unsigned char data_rate)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_datarate);
+EXPORT_SYMBOL(bmm050_set_datarate);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_datarate(unsigned char *data_rate)
 {
@@ -744,7 +744,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_get_datarate(unsigned char *data_rate)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_datarate);
+EXPORT_SYMBOL(bmm050_get_datarate);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_perform_advanced_selftest(
 BMM050_S16 *diff_z)
@@ -810,7 +810,7 @@ BMM050_S16 *diff_z)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_perform_advanced_selftest);
+EXPORT_SYMBOL(bmm050_perform_advanced_selftest);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_init_trim_registers(void)
 {
@@ -865,7 +865,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_init_trim_registers(void)
 				SHIFT_LEFT_8_POSITION) | a_data_u8r[0]);
 	return comres;
 }
-EXPORT_MODULE(bmm050_init_trim_registers);
+EXPORT_SYMBOL(bmm050_init_trim_registers);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_adv_selftest(
 unsigned char adv_selftest)
@@ -924,7 +924,7 @@ unsigned char adv_selftest)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_adv_selftest);
+EXPORT_SYMBOL(bmm050_set_adv_selftest);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_adv_selftest(
 unsigned char *adv_selftest)
@@ -941,7 +941,7 @@ unsigned char *adv_selftest)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_adv_selftest);
+EXPORT_SYMBOL(bmm050_get_adv_selftest);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_presetmode(
 unsigned char *mode)
@@ -984,7 +984,7 @@ unsigned char *mode)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_presetmode);
+EXPORT_SYMBOL(bmm050_get_presetmode);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_powermode(unsigned char *mode)
 {
@@ -1002,7 +1002,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_get_powermode(unsigned char *mode)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_powermode);
+EXPORT_SYMBOL(bmm050_get_powermode);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_powermode(unsigned char mode)
 {
@@ -1024,7 +1024,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_set_powermode(unsigned char mode)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_powermode);
+EXPORT_SYMBOL(bmm050_set_powermode);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_repetitions_XY(
 unsigned char *no_repetitions_xy)
@@ -1042,7 +1042,7 @@ unsigned char *no_repetitions_xy)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_repetitions_XY);
+EXPORT_SYMBOL(bmm050_get_repetitions_XY);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_repetitions_XY(
 unsigned char no_repetitions_xy)
@@ -1060,7 +1060,7 @@ unsigned char no_repetitions_xy)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_repetitions_XY);
+EXPORT_SYMBOL(bmm050_set_repetitions_XY);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_repetitions_Z(
 unsigned char *no_repetitions_z)
@@ -1078,7 +1078,7 @@ unsigned char *no_repetitions_z)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_repetitions_Z);
+EXPORT_SYMBOL(bmm050_get_repetitions_Z);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_repetitions_Z(
 unsigned char no_repetitions_z)
@@ -1094,7 +1094,7 @@ unsigned char no_repetitions_z)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_repetitions_Z);
+EXPORT_SYMBOL(bmm050_set_repetitions_Z);
 
 BMM050_S16 bmm050_compensate_X(BMM050_S16 mdata_x, BMM050_U16 data_r)
 {
@@ -1122,7 +1122,7 @@ BMM050_S16 bmm050_compensate_X(BMM050_S16 mdata_x, BMM050_U16 data_r)
 	}
 	return inter_retval;
 }
-EXPORT_MODULE(bmm050_compensate_X);
+EXPORT_SYMBOL(bmm050_compensate_X);
 
 BMM050_S32 bmm050_compensate_X_s32 (BMM050_S16 mdata_x, BMM050_U16 data_r)
 {
@@ -1133,7 +1133,7 @@ BMM050_S32 bmm050_compensate_X_s32 (BMM050_S16 mdata_x, BMM050_U16 data_r)
 		retval = BMM050_OVERFLOW_OUTPUT_S32;
 	return retval;
 }
-EXPORT_MODULE(bmm050_compensate_X_s32);
+EXPORT_SYMBOL(bmm050_compensate_X_s32);
 
 #ifdef ENABLE_FLOAT
 float bmm050_compensate_X_float (BMM050_S16 mdata_x, BMM050_U16 data_r)
@@ -1157,7 +1157,7 @@ float bmm050_compensate_X_float (BMM050_S16 mdata_x, BMM050_U16 data_r)
 	}
 	return inter_retval;
 }
-EXPORT_MODULE(bmm050_compensate_X_float);
+EXPORT_SYMBOL(bmm050_compensate_X_float);
 #endif
 
 BMM050_S16 bmm050_compensate_Y(BMM050_S16 mdata_y, BMM050_U16 data_r)
@@ -1189,7 +1189,7 @@ BMM050_S16 bmm050_compensate_Y(BMM050_S16 mdata_y, BMM050_U16 data_r)
 	}
 	return inter_retval;
 }
-EXPORT_MODULE(bmm050_compensate_Y);
+EXPORT_SYMBOL(bmm050_compensate_Y);
 
 BMM050_S32 bmm050_compensate_Y_s32 (BMM050_S16 mdata_y, BMM050_U16 data_r)
 {
@@ -1200,7 +1200,7 @@ BMM050_S32 bmm050_compensate_Y_s32 (BMM050_S16 mdata_y, BMM050_U16 data_r)
 		retval = BMM050_OVERFLOW_OUTPUT_S32;
 	return retval;
 }
-EXPORT_MODULE(bmm050_compensate_Y_s32);
+EXPORT_SYMBOL(bmm050_compensate_Y_s32);
 
 #ifdef ENABLE_FLOAT
 float bmm050_compensate_Y_float(BMM050_S16 mdata_y, BMM050_U16 data_r)
@@ -1225,7 +1225,7 @@ float bmm050_compensate_Y_float(BMM050_S16 mdata_y, BMM050_U16 data_r)
 	}
 	return inter_retval;
 }
-EXPORT_MODULE(bmm050_compensate_Y_float);
+EXPORT_SYMBOL(bmm050_compensate_Y_float);
 #endif
 
 BMM050_S16 bmm050_compensate_Z(BMM050_S16 mdata_z, BMM050_U16 data_r)
@@ -1256,7 +1256,7 @@ BMM050_S16 bmm050_compensate_Z(BMM050_S16 mdata_z, BMM050_U16 data_r)
 	}
 	return (BMM050_S16)retval;
 }
-EXPORT_MODULE(bmm050_compensate_Z);
+EXPORT_SYMBOL(bmm050_compensate_Z);
 
 BMM050_S32 bmm050_compensate_Z_s32(BMM050_S16 mdata_z, BMM050_U16 data_r)
 {
@@ -1274,7 +1274,7 @@ BMM050_S32 bmm050_compensate_Z_s32(BMM050_S16 mdata_z, BMM050_U16 data_r)
 	}
 		return retval;
 }
-EXPORT_MODULE(bmm050_compensate_Z_s32);
+EXPORT_SYMBOL(bmm050_compensate_Z_s32);
 
 #ifdef ENABLE_FLOAT
 float bmm050_compensate_Z_float (BMM050_S16 mdata_z, BMM050_U16 data_r)
@@ -1292,7 +1292,7 @@ float bmm050_compensate_Z_float (BMM050_S16 mdata_z, BMM050_U16 data_r)
 	}
 	return inter_retval;
 }
-EXPORT_MODULE(bmm050_compensate_Z_float);
+EXPORT_SYMBOL(bmm050_compensate_Z_float);
 #endif
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_control_measurement_x(
@@ -1317,7 +1317,7 @@ unsigned char enable_disable)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_control_measurement_x);
+EXPORT_SYMBOL(bmm050_set_control_measurement_x);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_set_control_measurement_y(
 unsigned char enable_disable)
@@ -1342,7 +1342,7 @@ unsigned char enable_disable)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_set_control_measurement_y);
+EXPORT_SYMBOL(bmm050_set_control_measurement_y);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_soft_reset(void)
 {
@@ -1380,7 +1380,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_soft_reset(void)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_soft_reset);
+EXPORT_SYMBOL(bmm050_soft_reset);
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_get_raw_xyz(struct bmm050_mdata *mdata)
 {
@@ -1421,7 +1421,7 @@ BMM050_RETURN_FUNCTION_TYPE bmm050_get_raw_xyz(struct bmm050_mdata *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_raw_xyz);
+EXPORT_SYMBOL(bmm050_get_raw_xyz);
 
 /* In this function X and Y axis is remapped,
  * this API is only applicable for BMX055*/
@@ -1467,4 +1467,4 @@ struct bmm050_remapped_mdata *mdata)
 	}
 	return comres;
 }
-EXPORT_MODULE(bmm050_get_bmx055_remapped_raw_xyz);
+EXPORT_SYMBOL(bmm050_get_bmx055_remapped_raw_xyz);
