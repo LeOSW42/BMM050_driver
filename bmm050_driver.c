@@ -201,16 +201,6 @@ static void bst_remap_sensor_data(struct bosch_sensor_data *data,
 	memcpy(data, &tmp, sizeof(*data));
 }
 
-static void bst_remap_sensor_data_dft_tab(struct bosch_sensor_data *data,
-		int place)
-{
-	/* sensor with place 0 needs not to be remapped */
-	if ((place <= 0) || (place >= MAX_AXIS_REMAP_TAB_SZ))
-		return;
-
-	bst_remap_sensor_data(data, &bst_axis_remap_tab_dft[place]);
-}
-
 static void bmm_remap_sensor_data(struct bmm050_mdata_s32 *val,
 		struct bmm_device_data *device_data)
 {
@@ -1132,7 +1122,7 @@ static int bmm_restore_hw_cfg(struct spi_device *spi)
 	return err;
 }
 
-static int bmm_probe(struct spi_device *spi, const struct spi_device_id *id)
+static int bmm_probe(struct spi_device *spi)
 {
 	int err = 0;
 	struct bmm_device_data *device_data = NULL;
@@ -1253,40 +1243,6 @@ exit_err_clean:
 
 		bmm_device = NULL;
 	}
-
-	return err;
-}
-
-static int bmm_pre_suspend(struct spi_device *spi)
-{
-	int err = 0;
-	struct bmm_device_data *device_data =
-		(struct bmm_device_data *)spi_get_drvdata(spi);
-	PDEBUG("function entrance");
-
-	mutex_lock(&device_data->mutex_enable);
-	if (device_data->enable) {
-		cancel_delayed_work_sync(&device_data->work);
-		PDEBUG("cancel work");
-	}
-	mutex_unlock(&device_data->mutex_enable);
-
-	return err;
-}
-
-static int bmm_post_resume(struct spi_device *spi)
-{
-	int err = 0;
-	struct bmm_device_data *device_data =
-		(struct bmm_device_data *)spi_get_drvdata(spi);
-
-	mutex_lock(&device_data->mutex_enable);
-	if (device_data->enable) {
-		schedule_delayed_work(&device_data->work,
-				msecs_to_jiffies(
-					atomic_read(&device_data->delay)));
-	}
-	mutex_unlock(&device_data->mutex_enable);
 
 	return err;
 }
