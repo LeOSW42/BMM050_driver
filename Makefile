@@ -1,5 +1,13 @@
-#
-# Makefile for Bosch sensor driver.
-#
-obj-$(CONFIG_SENSORS_BMM050)    += bmm050_driver.o bmm050.o
-EXTRA_CFLAGS += -DBMM_USE_BASIC_I2C_FUNC -DCONFIG_BMM_USE_PLATFORM_DATA
+obj-m += bmm050_driver.o
+obj-m += bmm050.o
+
+KERNEL_SRC = /dev/null
+
+all:
+        make -C $(KERNEL_SRC) M=$(PWD) modules
+
+modules_install:
+        make -C $(KERNEL_SRC) M=$(PWD) modules_install
+
+clean:
+        make -C $(KERNEL_SRC) M=$(PWD) clean
