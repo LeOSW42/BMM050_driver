@@ -37,7 +37,7 @@
 #endif
 
 
-#include "bmm050.h"
+#include "bmm050_main.h"
 #include "bs_log.h"
 
 /* sensor specific */

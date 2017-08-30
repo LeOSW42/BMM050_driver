@@ -16,7 +16,7 @@
 
 #include <linux/module.h>
 
-#include "bmm050.h"
+#include "bmm050_main.h"
 static struct bmm050 *p_bmm050;
 
 BMM050_RETURN_FUNCTION_TYPE bmm050_init(struct bmm050 *bmm050)
